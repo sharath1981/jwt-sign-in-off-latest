@@ -1,6 +1,7 @@
 package com.ryana.services;
 
 import com.ryana.domain.AppUser;
+import com.ryana.domain.Authority;
 import com.ryana.domain.AuthorityScope;
 import com.ryana.dto.AuthRequest;
 import com.ryana.repositories.AppUserRepository;
@@ -26,15 +27,19 @@ public class AppUserService {
     }
 
     private AppUser createUser(AuthRequest request) {
-        final var user = new AppUser();
-        user.setUsername(request.username());
-        user.setPassword(passwordEncoder.encode(request.password()));
-        user.setAccountNonExpired(Boolean.TRUE);
-        user.setAccountNonLocked(Boolean.TRUE);
-        user.setCredentialsNonExpired(Boolean.TRUE);
-        user.setEnabled(Boolean.TRUE);
-        authorityRepository.findByAuthority(AuthorityScope.USER.name())
-                .ifPresent(user.getAuthorities()::add);
-        return user;
+        return AppUser.builder()
+                .username(request.username())
+                .password(passwordEncoder.encode(request.password()))
+                .accountNonExpired(Boolean.TRUE)
+                .accountNonLocked(Boolean.TRUE)
+                .credentialsNonExpired(Boolean.TRUE)
+                .enabled(Boolean.TRUE)
+                .authority(findByAuthorityUSER())
+                .build();
+    }
+
+    private Authority findByAuthorityUSER() {
+        return authorityRepository.findByAuthority(AuthorityScope.USER.name())
+                .orElse(null);
     }
 }

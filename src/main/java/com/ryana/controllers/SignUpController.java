@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -15,7 +16,7 @@ public class SignUpController {
     private final AppUserService appUserService;
 
     @PostMapping("/sign-up")
-    public void signUp(@RequestBody AuthRequest authRequest) {
+    public void signUp(@RequestBody @Valid AuthRequest authRequest) {
         Optional.ofNullable(authRequest).ifPresent(appUserService::save);
     }
 }
