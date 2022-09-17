@@ -1,11 +1,12 @@
 INSERT INTO app_user (username, password, enabled, account_non_expired, account_non_locked, credentials_non_expired) VALUES
-('sharath', 'pass', true, true, true, true),
-('vivek', 'pass', true, true, true, true),
-('gopal', 'pass', false, true, true, true),
-('deb', 'pass', true, false, true, true),
-('soorya', 'pass', true, true, false, true),
-('ravi', 'pass', true, true, true, false),
-('rohit', 'pass', false, false, false, false);
+('sharath', '$2y$10$SVKUWxa0Z5uVYL4Adnp6lObmqG/FUIp5/AVavau9wMGY4otDGha62', true, true, true, true),
+('vivek', '$2y$10$SVKUWxa0Z5uVYL4Adnp6lObmqG/FUIp5/AVavau9wMGY4otDGha62', true, true, true, true),
+('gopal', '$2y$10$SVKUWxa0Z5uVYL4Adnp6lObmqG/FUIp5/AVavau9wMGY4otDGha62', false, true, true, true),
+('deb', '$2y$10$SVKUWxa0Z5uVYL4Adnp6lObmqG/FUIp5/AVavau9wMGY4otDGha62', true, false, true, true),
+('soorya', '$2y$10$SVKUWxa0Z5uVYL4Adnp6lObmqG/FUIp5/AVavau9wMGY4otDGha62', true, true, false, true),
+('ravi', '$2y$10$SVKUWxa0Z5uVYL4Adnp6lObmqG/FUIp5/AVavau9wMGY4otDGha62', true, true, true, false),
+('rohit', '$2y$10$SVKUWxa0Z5uVYL4Adnp6lObmqG/FUIp5/AVavau9wMGY4otDGha62', false, false, false, false);
+# password=pass
 
 INSERT INTO authority (authority) VALUES
 ('ADMIN'),
